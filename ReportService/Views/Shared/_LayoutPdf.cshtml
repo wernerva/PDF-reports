@@ -5,9 +5,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>@ViewData["Title"] </title>
-    <link rel="stylesheet" type="text/css" href="~/css/reports.css" />
+    <link rel="stylesheet" href="~/css/reports.css" />
 </head>
 <body>
-    @RenderBody()
+    <div class="pdf">
+        @RenderBody()
+    </div>
 </body>
 </html>
