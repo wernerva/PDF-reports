@@ -1,4 +1,26 @@
-﻿html, body {
+﻿div.pdf {
+    margin: auto;
+    padding: 10mm;
+}
+
+div.portrait {
+    margin: auto;
+    padding: 15px;
+    width: 794px;
+}
+
+div.landscape {
+    margin: auto;
+    padding: 15px;
+    width: 1123px;
+}
+
+div.portrait div.colContainer div {
+    display: inline-block;
+    width: 382px;
+}
+
+html, body {
     font-family: 'Verdana', 'Arial';
     font-size: 12px;
     background-color: rgb(255, 255, 255);
@@ -8,107 +30,43 @@
     margin: 0;
 }
 
-table {
-    width: 100%;
+header h1 {
+    margin: 0;
+    background-color: #327697;
+    color: #ffffff;
+    padding: 0.5em;
+    font-weight: 300;
+}
+
+td, th {
+    padding: 3px;
+}
+
+table.centered {
+    margin: auto;
+}
+
+table.gridlines {
+    border: 1px solid #000000;
     border-collapse: collapse;
 }
 
-td {
-    text-align: left;
-    vertical-align: top;
-    padding: 5px 5px;
-    overflow: hidden;
-    color: rgba(0, 0, 0, 0.87);
-    font-size: 14px;
-}
-
-/* ----- Rotativa table header and footer overlap fix ----- */
-
-thead {
-    display: table-header-group
-}
-
-tfoot {
-    display: table-row-group
-}
-
-tr {
-    page-break-inside: avoid
-}
-
-/* -------------------------------------------------------- */
-
-/* -------------------- Report Header --------------------- */
-
-table.report-header {
-    background-color: #d4e9ff;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
-    margin-bottom: 20px;
-}
-
-    table.report-header thead tr td:first-child {
-        width: 200px;
+    table.gridlines thead tr th, table.gridlines tbody tr td {
+        border: 1px solid #000000;
     }
 
-/* -------------------------------------------------------- */
-
-/* --------------------- Report Body ---------------------- */
-
-table.report-table thead tr th {
-    padding: 10px 5px;
-    overflow: hidden;
-    word-wrap: break-word;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
-    color: rgba(0, 0, 0, 0.33);
-    font-size: 14px;
-    font-weight: 800;
-    text-align: left;
+thead tr {
+    background-color: #bebebe;
 }
 
-    table.report-table thead tr th:not(:first-child) {
-        border-left: 1px solid rgba(0, 0, 0, 0.12);
+    thead tr th {
+        text-align: left
     }
 
-table.report-table tbody tr {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+td.right {
+    text-align: right
 }
 
-    table.report-table tbody tr.section-header {
-        background-color: rgba(0, 0, 0, 0.33);
-    }
-
-    table.report-table tbody tr.section-subheader {
-        background-color: rgba(0, 0, 0, 0.16);
-    }
-
-    table.report-table tbody tr:last-child {
-        border: none;
-    }
-
-    table.report-table tbody tr td {
-        padding: 5px;
-        overflow: hidden;
-        color: rgba(0, 0, 0, 0.87);
-        font-size: 14px;
-        min-height: 48px;
-    }
-
-        table.report-table tbody tr td.nowrap {
-            overflow: auto;
-            white-space: nowrap;
-        }
-
-/* -------------------------------------------------------- */
-
-/* -------------------- Report Footer --------------------- */
-
-
-table.report-table tfoot tr:first-child {
-    border-top: 3px double rgba(0, 0, 0, 0.50);
-    border-bottom: 3px double rgba(0, 0, 0, 0.50);
+div.colContainer {
+    padding: 0px;
 }
-
-/* -------------------------------------------------------- */
-
-
-

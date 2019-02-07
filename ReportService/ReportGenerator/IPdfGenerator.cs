@@ -6,6 +6,6 @@ namespace ReportService.ReportGenerator
 {
     public interface IPdfGenerator
     {
-        Task<FileDataModel> GeneratePdfAsync(object viewModel, string fileName, ControllerContext controllerContext);
+        Task<FileDataModel> GeneratePdfAsync(PdfArguments pdfArguments, ControllerContext controllerContext);
     }
 }
