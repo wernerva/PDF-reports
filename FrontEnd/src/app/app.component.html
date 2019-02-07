@@ -5,5 +5,11 @@
   </h1>
 </div>
 <h2>The beauty is in the back-end...</h2>
-<button type="button" (click)="getReport()">Get report</button>
+<button type="button" (click)="getFooReport(Orientation.landscape)">Get foo report - Landscape</button>
+<button type="button" (click)="getFooReport(Orientation.portrait)">Get foo report - Portrait</button>
+<br/>
+<br/>
+<textarea name="html" cols="80" rows="40" [(ngModel)]="html"></textarea>
+<br/>
+<button type="button" (click)="htmlToPdf()">Html to PDF</button>
 

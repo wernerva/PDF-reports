@@ -62,10 +62,7 @@ namespace ReportService
         {
             RotativaConfiguration.Setup(env);
             InitializeContainer(app);
-
-            container.Register<IPdfGenerator, PdfGenerator>();
-
-            container.Verify();
+            ConfigureDependancyInjection();
 
             if (env.IsDevelopment())
             {
@@ -79,6 +76,7 @@ namespace ReportService
             app.UseCors(corsPolicy);
 
             app.UseHttpsRedirection();
+            app.UseStaticFiles();
             app.UseMvc();
         }
 
@@ -90,6 +88,13 @@ namespace ReportService
             
             // Allow Simple Injector to resolve services from ASP.NET Core.
             container.AutoCrossWireAspNetComponents(app);
+        }
+
+        private void ConfigureDependancyInjection()
+        {
+            container.Register<IPdfGenerator, PdfGenerator>();
+
+            container.Verify();
         }
     }
 }
