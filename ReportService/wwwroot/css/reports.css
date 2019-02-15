@@ -1,6 +1,6 @@
 ﻿div.pdf {
-    margin: auto;
-    padding: 10mm;
+    margin: 0;
+    padding: 0;
 }
 
 div.portrait {
@@ -21,7 +21,7 @@ div.portrait div.colContainer div {
 }
 
 html, body {
-    font-family: 'Verdana', 'Arial';
+    font-family: 'Verdana', 'Arial', sans-serif;
     font-size: 12px;
     background-color: rgb(255, 255, 255);
     height: 100%;
@@ -68,5 +68,5 @@ td.right {
 }
 
 div.colContainer {
-    padding: 0px;
+    padding: 0;
 }

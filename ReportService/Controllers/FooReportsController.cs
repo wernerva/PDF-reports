@@ -9,10 +9,7 @@ namespace ReportService.Controllers
     [ApiController]
     public class FooReportsController : ReportsBaseController
     {
-        public FooReportsController(IPdfGenerator pdfGenerator) : base(pdfGenerator)
-        {
-
-        }
+        public FooReportsController(IPdfGenerator pdfGenerator) : base(pdfGenerator) { }
 
         [HttpGet("Landscape")]
         [Layout(SCREEN_LAYOUT_LANDSCAPE)]

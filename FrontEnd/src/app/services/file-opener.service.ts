@@ -18,11 +18,11 @@ export class FileOpenerService {
     if (window.navigator && window.navigator.msSaveOrOpenBlob) {
       window.navigator.msSaveOrOpenBlob(blob, fileData.fileName);
     } else {
-      const link = document.createElement("a");
+      const link = document.createElement('a');
 
       link.href = URL.createObjectURL(blob);
-      link.target = "_blank";
-      link.setAttribute("download", fileData.fileName);
+      link.target = '_blank';
+      link.setAttribute('download', fileData.fileName);
 
       document.body.appendChild(link);
       link.click();

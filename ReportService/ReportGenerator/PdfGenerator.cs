@@ -9,15 +9,8 @@ namespace ReportService.ReportGenerator
 {
     public class PdfGenerator : IPdfGenerator
     {
-        private readonly string _footerSwitch;
-
-        public PdfGenerator()
-        {
-            _footerSwitch =
-                "--footer-right \"Page: [page]/[toPage]\" " +
-                "--footer-line --footer-font-size \"6\" " +
-                "--footer-spacing 0 --footer-font-name \"Verdana\"";
-        }
+        
+        public PdfGenerator() { }
 
 
         public async Task<FileDataModel> GeneratePdfAsync(PdfArguments pdfArguments, ControllerContext controllerContext)
@@ -30,8 +23,8 @@ namespace ReportService.ReportGenerator
                 PageOrientation = rotativaOrientation,
                 ContentDisposition = Rotativa.AspNetCore.Options.ContentDisposition.Attachment,
                 FileName = $"{Regex.Replace(pdfArguments.FileName, @"\.pdf$", "", RegexOptions.IgnoreCase)}.pdf",
-                CustomSwitches = _footerSwitch,
-                PageMargins = new Rotativa.AspNetCore.Options.Margins(0, 0, 0, 0)
+                CustomSwitches = GenerateCustomSwitches(pdfArguments.Header, pdfArguments.Footer),
+                PageMargins = GetMargins(pdfArguments.Margins)
             };
 
             if (!string.IsNullOrWhiteSpace(pdfArguments.ViewName))
@@ -47,6 +40,24 @@ namespace ReportService.ReportGenerator
                 ContentType = "application/pdf",
                 FileName = pdfView.FileName
             };
+        }
+
+        private string GenerateCustomSwitches(PdfHeader header, PdfFooter footer)
+        {
+            string headerSwitches = header != null ? header.ToString() : "";
+            string footerSwitches = footer != null ? footer.ToString() : "";
+
+            return $"{headerSwitches} {footerSwitches}".Trim();
+        }
+
+        private Rotativa.AspNetCore.Options.Margins GetMargins(PdfMargins margins)
+        {
+            if (margins == null)
+            {
+                return new Rotativa.AspNetCore.Options.Margins(0, 0, 0, 0);
+            }
+
+            return new Rotativa.AspNetCore.Options.Margins(margins.Top, margins.Right, margins.Bottom, margins.Left);
         }
     }
 }

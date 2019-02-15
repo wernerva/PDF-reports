@@ -37,6 +37,8 @@ namespace ReportService
                 });
             });
 
+            services.AddMemoryCache();
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             IntegrateSimpleInjector(services);

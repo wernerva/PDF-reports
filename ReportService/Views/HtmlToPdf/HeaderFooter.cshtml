@@ -1,0 +1,33 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script type="text/javascript">
+        function subst() {
+            var vars = {};
+            var pathVars = document.location.search.substring(1).split('&');
+            var classNames = ['frompage', 'topage', 'page', 'webpage', 'section', 'subsection', 'subsubsection'];
+
+            for (var i in pathVars) { var z = pathVars[i].split('=', 2); vars[z[0]] = unescape(z[1]); }
+
+            for (var i in classNames) {
+                var e = document.getElementsByClassName(classNames[i]);
+                for (var j = 0; j < e.length; ++j) e[j].textContent = vars[classNames[i]];
+            }
+        }
+    </script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body onload="subst();">
+    @Html.Raw(Model)
+</body>
+</html>

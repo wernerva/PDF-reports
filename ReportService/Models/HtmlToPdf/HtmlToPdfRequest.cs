@@ -6,6 +6,12 @@ namespace ReportService.Models.HtmlToPdf
     {
         public Orientation Orientation { get; set; }
 
-        public string HtmlContent { get; set; }
+        public string PdfHeader { get; set; }
+
+        public string PdfBody { get; set; }
+
+        public string PdfFooter { get; set; }
+
+        public PdfMargins Margins { get; set; } = new PdfMargins();
     }
 }

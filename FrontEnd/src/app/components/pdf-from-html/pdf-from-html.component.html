@@ -1,0 +1,46 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Generate PDF From HTML</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div>
+      <mat-form-field class="halfWidth">
+        <input type="text" matInput placeholder="PDF Header" name="pdfHeader" [(ngModel)]="pdfHeader"/>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field class="halfWidth">
+        <textarea matInput placeholder="PDF Body" name="pdfBody" [(ngModel)]="pdfBody"></textarea>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field class="halfWidth">
+        <input type="text" matInput placeholder="PDF Footer" name="pdfFooter" [(ngModel)]="pdfFooter"/>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field style="width: 80px;">
+        <input type="number" matInput placeholder="margin top" name="pdfFooter" min="0" [(ngModel)]="margins.top"/>
+      </mat-form-field>
+      <mat-form-field style="width: 80px;">
+        <input type="number" matInput placeholder="margin right" name="pdfFooter" min="0" [(ngModel)]="margins.right"/>
+      </mat-form-field>
+      <mat-form-field style="width: 80px;">
+        <input type="number" matInput placeholder="margin bottom" name="pdfFooter" min="0" [(ngModel)]="margins.bottom"/>
+      </mat-form-field>
+      <mat-form-field style="width: 80px;">
+        <input type="number" matInput placeholder="margin left" name="pdfFooter" min="0" [(ngModel)]="margins.left"/>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-radio-group [(ngModel)]="pdfOrientation">
+        <mat-radio-button [value]="orientation.portrait">Portrait</mat-radio-button>
+        <mat-radio-button [value]="orientation.landscape">Landscape</mat-radio-button>
+      </mat-radio-group>
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="primary" type="button" (click)="pdf()">Get PDF</button>
+    <button mat-raised-button color="primary" type="button" (click)="preview()">Preview</button>
+  </mat-card-actions>
+</mat-card>
